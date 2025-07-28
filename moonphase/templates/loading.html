@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <meta http-equiv="refresh" content="10;url={% url 'home' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="content">
+    <p>We are nothing, not even a speck of dust in the vast and endless universe...</p>
+    <div class="loading-container">
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+</body>
+</html>

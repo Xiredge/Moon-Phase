@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Phase</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1 class="moondisplay">{{ moon.emoji }}</h1>
+    
+    <form method="GET" action="{% url 'home' %}">
+        <label for="date">Date</label>
+        <br>
+        <input type="date" name="date" id="date" required>
+        <br>
+        <button type="submit">Get Moon Phase</button>
+    </form>
+
+
+    {% if moon %}
+        <br>
+        <label style="font-size: 2rem;">{{ moon.Dtoday }} is a {{ moon.phase }}</label>
+        <p style="font-size: 2rem;">(Angle: {{ moon.angle }}°)</p>
+    {% endif %}
+
+</body>
+</html>
