@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ob)jotv1k05zm++-9mk5p+j8@5$c-og)or8t9=e9)s+pd4t+u*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['moon-phase-063a.onrender.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -117,8 +117,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-    ]
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
