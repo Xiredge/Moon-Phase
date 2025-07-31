@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-ob)jotv1k05zm++-9mk5p+j8@5$c-og)or8t9=e9)s+pd4t+u*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['moon-phase-063a.onrender.com']
+
 
 # Application definition
 
