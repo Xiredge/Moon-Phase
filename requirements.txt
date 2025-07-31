@@ -1,0 +1,9 @@
+asgiref==3.8.1
+certifi==2025.7.14
+Django==5.2.3
+jplephem==2.23
+numpy==2.3.2
+sgp4==2.24
+skyfield==1.53
+sqlparse==0.5.3
+tzdata==2025.2
