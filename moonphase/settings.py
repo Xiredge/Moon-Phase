@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['moon-phase-063a.onrender.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -118,7 +117,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'moonphase/static'),
+    os.path.join(BASE_DIR, 'moonphase/static')
 ]
 
 # Default primary key field type
