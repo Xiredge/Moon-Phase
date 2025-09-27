@@ -1,18 +1,11 @@
 # from django.http import HttpResponse
 from django.shortcuts import render
 from .moon import get_moon_phase  # import your function
-from datetime import datetime
 
 def home(request):
     moon = None
     selected_date = None
 
-    # Get the current date and time
-    #current_datetime = 
-
-    # Extract the year from the datetime object
-    current_year = datetime.now().year
-    year = 0
     displays = ""
 
     if 'date' in request.GET:
@@ -24,11 +17,10 @@ def home(request):
         else:
             moon = get_moon_phase(year, month, day)
 
-    totalyear = int(year) - int(current_year)
 
     return render(request, 'home.html', {
         'moon': moon,
         'selected_date': selected_date,
-        'totalyear': totalyear,
+
         'displays': displays,
     })
