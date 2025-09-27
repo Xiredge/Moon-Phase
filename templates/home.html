@@ -7,24 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moon Phase</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
 </head>
 <body>
-    <h1 class="moondisplay">{{ moon.emoji }}</h1>
-    
-    <form method="GET" action="{% url 'home' %}">
-        <label for="date">Date</label>
-        <br>
-        <input type="date" name="date" id="date" required>
-        <br>
-        <button type="submit">Get Moon Phase</button>
-    </form>
+    <div class="container">
+        <div class="middle">
+            <nav class="navbar">
+                <a href="{% url 'home' %}" class="logo">Moon Phase</a>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="rounded-box-display">
+                <h1 class="moondisplay">{{ moon.emoji }}</h1>
+            </div>
+                
+            <form method="GET" action="{% url 'home' %}">
+                <label>Date</label>
+                <br>
+                <input type="date" name="date" id="date" required>
+                <br>
+                <button type="submit" id="checkBtn">Get Moon Phase</button>
+            </form>
+        </div>
 
-
-    {% if moon %}
-        <br>
-        <label style="font-size: 2rem;">{{ moon.Dtoday }} is a {{ moon.phase }}</label>
-        <p style="font-size: 2rem;">(Angle: {{ moon.angle }}°)</p>
-    {% endif %}
-
+        <div class="right">
+            <div class="rounded-box">
+                {% if moon %}
+                    <br>
+                    <label>{{ moon.Dtoday }} is a {{ moon.phase }}.</label>
+                {% endif %}
+                <p>{{ displays }}</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

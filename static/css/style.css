@@ -7,38 +7,42 @@
 body {
     margin: 0;
     height: 100vh;
-    background: url("../images/space.png") no-repeat center center fixed;
+    background: url("../images/space.jpg") no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
     display: grid;
     place-content: center;
     text-align: center;
-    color: white;
+    color: #F8EDFF;
     font-size: 2rem;
-    font-family: monospace;
+    font-family: "Roboto", sans-serif;
 }
 
 .moondisplay {
-    font-size: 20rem;
+    font-size: 190px;
     text-align: center;
 }
 
 label {
-  font-family: 'Poppins', sans-serif; /* or any font you want */
-  color: #0ff; /* white */
-  font-size: 20px;
+  margin-top: 150px;
+  font-family: "Roboto", sans-serif;
+  color: #F8EDFF;
+  font-size: 2rem;
   font-weight: bold;
+  text-align: center;
+  align-items: center;
 }
 
 #date {
-  color: #0ff;
+  margin-top: 20px;
+  color: #F8EDFF;
   background-color: transparent;
-  border: 2px solid #0ff;
+  border: 2px solid #F8EDFF;
   padding: 10px 14px;
   font-size: 0.9rem;
   border-radius: 12px;
   font-family: monospace;
-  box-shadow: 0 0 6px #0ff, 0 0 12px #0ff inset;
+  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
   outline: none;
   transition: 0.3s ease;
   width: 180px;
@@ -46,67 +50,25 @@ label {
 
 /* Optional: change placeholder style */
 #date::placeholder {
-  color: #0ff;
+  color: #F8EDFF;
   opacity: 0.6;
 }
 
 /* On focus, add stronger glow */
 #date:focus {
-  box-shadow: 0 0 15px #0ff;
+  box-shadow: 0 0 15px #F8EDFF;
 }
 
 #date:hover {
-  background: #0ff;
+  background: #F8EDFF;
   color: black;
-  box-shadow: 0 0 12px #0ff, 0 0 24px #0ff inset;
-}
-
-.stars {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    animation: moveStars 100s linear infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-    }
-
-@keyframes moveStars {
-    from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
-}
-
-.content {
-    z-index: 1;
-}
-
-.loading-container {
-    width: 80%;
-    max-width: 600px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #0ff;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 40px auto 0 auto;
-}
-
-.loading-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #0ff, #00f);
-    animation: load 10s forwards;
-}
-
-@keyframes load {
-    0% { width: 0%; }
-    100% { width: 100%; }
+  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
 }
 
 button {
   background: transparent;
-  border: 2px solid #0ff;
-  color: #0ff;
+  border: 2px solid #F8EDFF;
+  color: #F8EDFF;
   padding: 6px 12px;  /* narrower side padding */
   font-size: 0.9rem;
   font-family: monospace;
@@ -114,12 +76,113 @@ button {
   cursor: pointer;
   text-align: center; /* center text */
   transition: all 0.3s ease;
-  box-shadow: 0 0 6px #0ff, 0 0 12px #0ff inset;
+  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
   letter-spacing: 1px;
 }
 
 button:hover {
-  background: #0ff;
-  color: black;
-  box-shadow: 0 0 12px #0ff, 0 0 24px #0ff inset;
+  background: #F8EDFF;
+  color: #3D3B40;
+  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
+}
+
+/*-------------------- Navigation Bar CSS --------------------*/
+.navbar {
+  position: fixed;       /* ✅ makes it stick */
+  top: 0;                /* stick to the very top */
+  left: 0;
+  width: 100%;           /* full width */
+  background: rgb(0, 0, 0, 0.3); 
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;         /* keep it above other elements */
+  backdrop-filter: blur(2px);
+  }
+.navbar .logo {
+  color: #F8EDFF;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: #F8EDFF;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: add top padding to main content so it's not hidden */
+main {
+  padding-top: 70px;
+}
+/* End of Navigation Bar CSS*/
+
+/* Container for the three panels */
+.container {
+  display: flex;          /* enable flexbox */
+  min-height: 100vh;      /* full viewport height */
+}
+
+/* Each panel */
+.left,
+.middle,
+.right {
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.left {
+  flex: 1;                /* 1 part of the space */
+  align-items: center;
+}
+
+.middle {
+  flex: 2;                /* 2 parts = wider center */
+}
+
+.right {
+  flex: 1;
+}
+
+/* Optional: make it stack on small screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+ }
+}
+
+.rounded-box {
+  margin-top: 100px;
+  width: 300px;              /* set width */
+  min-height: 300px;         /* set height (or use padding for auto height) */
+  padding: 20px;             /* space inside */
+  border: 2px solid #F8EDFF; /* optional border */
+  border-radius: 20px;       /* ✅ rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow for depth */
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;               /* text color */
+  align-items: center;
+}
+
+.rounded-box-display{
+  margin-top: 100px;
+  width: 300px;              /* set width */
+  min-height: 300px;         /* set height (or use padding for auto height) */
+  padding: 20px;             /* space inside */
+  border-radius: 20px;       /* ✅ rounded corners */
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;               /* text color */
+  align-items: center;
 }

@@ -46,5 +46,5 @@ def get_moon_phase(year, month, day):
         'phase': phase,
         'angle': round(angle, 2),
         'emoji': emoji,
-        'Dtoday': f' {day} {calendar.month_name[month]}, {year}'
+        'Dtoday': f' {calendar.month_name[month]} {day}, {year}'
     }
