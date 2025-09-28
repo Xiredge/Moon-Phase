@@ -65,6 +65,25 @@ label {
   box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
 }
 
+#homebutton, 
+#aboutbutton, 
+#contactbutton{
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#datelabel{
+  margin-top: 150px;
+  font-family: "Roboto", sans-serif;
+  color: #F8EDFF;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+}
+
+
 button {
   background: transparent;
   border: 2px solid #F8EDFF;
@@ -104,7 +123,7 @@ button:hover {
   color: #F8EDFF;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 .nav-links {
   list-style: none;
@@ -135,7 +154,12 @@ main {
 }
 
 /* Each panel */
-.left,
+.left{
+  padding: 200px;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
 .middle,
 .right {
   padding: 20px;
@@ -149,7 +173,7 @@ main {
 }
 
 .middle {
-  flex: 2;                /* 2 parts = wider center */
+  flex: 1;                /* 2 parts = wider center */
 }
 
 .right {
@@ -165,12 +189,10 @@ main {
 
 .rounded-box {
   margin-top: 100px;
-  width: 300px;              /* set width */
+  width: 450px;              /* set width */
   min-height: 300px;         /* set height (or use padding for auto height) */
   padding: 20px;             /* space inside */
-  border: 2px solid #F8EDFF; /* optional border */
   border-radius: 20px;       /* ✅ rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow for depth */
   font-family: 'Roboto', sans-serif;
   color: #F8EDFF;               /* text color */
   align-items: center;
