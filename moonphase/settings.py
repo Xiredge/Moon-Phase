@@ -124,6 +124,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # where collectstatic puts 
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # your development static files
+    BASE_DIR / "static",
 ]
 
 

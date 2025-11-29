@@ -6,33 +6,84 @@
 
 body {
     margin: 0;
-    height: 100vh;
-    background: url("../images/space.jpg") no-repeat center center fixed;
+    min-height: 100vh;
+    background: url("../images/space.png") no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden;
-    display: grid;
-    place-content: center;
     text-align: center;
     color: #F8EDFF;
     font-size: 2rem;
     font-family: "Roboto", sans-serif;
 }
 
-.moondisplay {
-    font-size: 190px;
-    text-align: center;
+
+
+
+
+/* ===========================
+          Navigation Bar
+   =========================== */
+.navbar {
+  position: static;
+  width: 100%;
+  background: transparent;
 }
 
+#webTitle {
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+
+
+/* ===========================
+              Body
+   =========================== */
+
+/* Moon Image Style*/
+.moondisplay {
+  font-size: 190px;
+  text-align: center;
+  margin: 0
+}
+
+/* Text Label Style */
 label {
-  margin-top: 150px;
   font-family: "Roboto", sans-serif;
   color: #F8EDFF;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   align-items: center;
 }
 
+/* Button Style */
+/* Start */
+#checkBtn {
+  margin-top: .2rem;
+  background: transparent;
+  border: 2px solid #F8EDFF;
+  color: #F8EDFF;
+  padding: 6px 12px;  /* narrower side padding */
+  font-size: 0.9rem;
+  font-family: monospace;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center; /* center text */
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
+  letter-spacing: 1px;
+}
+
+#checkBtn:hover {
+  background: #F8EDFF;
+  color: #3D3B40;
+  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
+}/* End */
+
+/* Date Form Style */
+/* Start */
 #date {
   margin-top: 20px;
   color: #F8EDFF;
@@ -48,13 +99,11 @@ label {
   width: 180px;
 }
 
-/* Optional: change placeholder style */
 #date::placeholder {
   color: #F8EDFF;
   opacity: 0.6;
 }
 
-/* On focus, add stronger glow */
 #date:focus {
   box-shadow: 0 0 15px #F8EDFF;
 }
@@ -63,7 +112,27 @@ label {
   background: #F8EDFF;
   color: black;
   box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
+}/* End */
+
+/* Main Content Style */
+/* Start */
+.rounded-box {
+  min-width: 300px;
+  min-height: 300px;
+  padding: 0;             
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;              
+  align-items: center;
 }
+
+.rounded-box-display{
+  min-width: 300px;              
+  min-height: 300px;        
+  padding: 0;             
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;               
+  align-items: center;
+}/* End */
 
 #homebutton, 
 #aboutbutton, 
@@ -73,138 +142,24 @@ label {
   font-size: 1rem;
 }
 
-#datelabel{
-  margin-top: 150px;
-  font-family: "Roboto", sans-serif;
-  color: #F8EDFF;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  align-items: center;
-}
-
-
-button {
-  background: transparent;
-  border: 2px solid #F8EDFF;
-  color: #F8EDFF;
-  padding: 6px 12px;  /* narrower side padding */
-  font-size: 0.9rem;
-  font-family: monospace;
-  border-radius: 20px;
-  cursor: pointer;
-  text-align: center; /* center text */
-  transition: all 0.3s ease;
-  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
-  letter-spacing: 1px;
-}
-
-button:hover {
-  background: #F8EDFF;
-  color: #3D3B40;
-  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
-}
-
-/*-------------------- Navigation Bar CSS --------------------*/
-.navbar {
-  position: fixed;       /* ✅ makes it stick */
-  top: 0;                /* stick to the very top */
-  left: 0;
-  width: 100%;           /* full width */
-  background: rgb(0, 0, 0, 0.3); 
-  padding: 0.5em 1em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;         /* keep it above other elements */
-  backdrop-filter: blur(2px);
-  }
-.navbar .logo {
-  color: #F8EDFF;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.0em;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1em;
-  margin: 0;
-  padding: 0;
-}
-.nav-links a {
-  color: #F8EDFF;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-}
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Optional: add top padding to main content so it's not hidden */
-main {
-  padding-top: 70px;
-}
-/* End of Navigation Bar CSS*/
-
-/* Container for the three panels */
-.container {
-  display: flex;          /* enable flexbox */
-  min-height: 100vh;      /* full viewport height */
-}
-
-/* Each panel */
-.left{
-  padding: 200px;
-  box-sizing: border-box;
-  margin-top: 50px;
-}
-
-.middle,
-.right {
-  padding: 20px;
-  box-sizing: border-box;
-  margin-top: 50px;
-}
-
-.left {
-  flex: 1;                /* 1 part of the space */
-  align-items: center;
-}
-
-.middle {
-  flex: 1;                /* 2 parts = wider center */
-}
-
-.right {
-  flex: 1;
-}
-
-/* Optional: make it stack on small screens */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
- }
-}
+  #mainDiv{
+    justify-content: center;
+  }
+  .left, .right {
+    width: 100%;
+  }
 
-.rounded-box {
-  margin-top: 100px;
-  width: 450px;              /* set width */
-  min-height: 300px;         /* set height (or use padding for auto height) */
-  padding: 20px;             /* space inside */
-  border-radius: 20px;       /* ✅ rounded corners */
-  font-family: 'Roboto', sans-serif;
-  color: #F8EDFF;               /* text color */
+  .rounded-box {
+  min-width: 50px;
+  min-height: 50px;
+  padding: 0;             
   align-items: center;
 }
 
 .rounded-box-display{
-  margin-top: 100px;
-  width: 300px;              /* set width */
-  min-height: 300px;         /* set height (or use padding for auto height) */
-  padding: 20px;             /* space inside */
-  border-radius: 20px;       /* ✅ rounded corners */
-  font-family: 'Roboto', sans-serif;
-  color: #F8EDFF;               /* text color */
+  min-width: 150px;
+  min-height: 150px;           
   align-items: center;
+}
 }

@@ -29,6 +29,7 @@ def get_moon_phase(year, month, day):
     if angle < 22.5:
         phase = 'New Moon'
         emoji = '🌑'
+        # emoji = 'staticfiles/images/new_moon.png'
     elif angle < 67.5:
         phase = 'Waxing Crescent' if waxing else 'Waning Crescent'
         emoji = '🌒' if waxing else '🌘'
