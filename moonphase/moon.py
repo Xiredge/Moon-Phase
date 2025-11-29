@@ -28,20 +28,19 @@ def get_moon_phase(year, month, day):
     # Determine moon phase
     if angle < 22.5:
         phase = 'New Moon'
-        emoji = '🌑'
-        # emoji = 'staticfiles/images/new_moon.png'
+        emoji = 'images/new_moon.png'
     elif angle < 67.5:
         phase = 'Waxing Crescent' if waxing else 'Waning Crescent'
-        emoji = '🌒' if waxing else '🌘'
+        emoji = 'images/waxing_crescent_moon.png' if waxing else 'images/waning_crescent_moon.png'
     elif angle < 112.5:
         phase = 'First Quarter' if waxing else 'Last Quarter'
-        emoji = '🌓' if waxing else '🌗'
+        emoji = 'images/first_quarter_moon.png' if waxing else 'images/last_quarter_moon.png'
     elif angle < 157.5:
         phase = 'Waxing Gibbous' if waxing else 'Waning Gibbous'
-        emoji = '🌔' if waxing else '🌖'
+        emoji = 'images/waxing_gibbous.png' if waxing else 'images/waning_gibbous_moon.png'
     else:
         phase = 'Full Moon'
-        emoji = '🌕'
+        emoji = 'images/full_moon.png'
 
     return {
         'phase': phase,

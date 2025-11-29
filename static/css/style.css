@@ -42,10 +42,9 @@ body {
    =========================== */
 
 /* Moon Image Style*/
-.moondisplay {
-  font-size: 190px;
-  text-align: center;
-  margin: 0
+img {
+  min-height: 200px;
+  padding: 25px;
 }
 
 /* Text Label Style */
@@ -61,7 +60,7 @@ label {
 /* Button Style */
 /* Start */
 #checkBtn {
-  margin-top: .2rem;
+  margin-top: .5rem;
   background: transparent;
   border: 2px solid #F8EDFF;
   color: #F8EDFF;
@@ -126,8 +125,8 @@ label {
 }
 
 .rounded-box-display{
-  min-width: 300px;              
-  min-height: 300px;        
+  min-width: 200px;              
+  min-height: 200px;        
   padding: 0;             
   font-family: 'Roboto', sans-serif;
   color: #F8EDFF;               
@@ -146,6 +145,7 @@ label {
   #mainDiv{
     justify-content: center;
   }
+
   .left, .right {
     width: 100%;
   }
@@ -155,11 +155,16 @@ label {
   min-height: 50px;
   padding: 0;             
   align-items: center;
-}
+  }
 
-.rounded-box-display{
-  min-width: 150px;
-  min-height: 150px;           
-  align-items: center;
-}
+  .rounded-box-display{
+    min-width: 150px;
+    min-height: 150px;           
+    align-items: center;
+  }
+
+  img {
+    min-height: 150px;
+    padding: 25px;
+  }
 }

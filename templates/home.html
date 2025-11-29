@@ -40,8 +40,7 @@
       </div>
       <div class="right">
         <div class="rounded-box-display">
-          <h1 class="moondisplay">{{ moon.emoji }}</h1>
-          <!--<img src="{% static moon.emoji %}" alt="Moon">-->
+          <img src="{% static moon.emoji %}" alt="Moon">
         </div>
         <form method="GET" action="{% url 'home' %}">
           <label id="datelabel">Select Date</label> <br />
