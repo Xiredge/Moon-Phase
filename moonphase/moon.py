@@ -47,12 +47,37 @@ def get_moon_phase(year, month, day):
     illumination = (1 - math.cos(math.radians(angle))) / 2
     illumination_percent = round(illumination * 100, 1)
 
+    #Average moon age is 29.53 days, so we can calculate the age of the moon in days
+    synodic_month = 29.53058867 
+    moon_age = (synodic_month * angle / 360) % synodic_month
+
+    # Phase ages in days
+    phase_ages = {
+        "New Moon": 0,
+        "First Quarter": synodic_month * 0.25,
+        "Full Moon": synodic_month * 0.5,
+        "Last Quarter": synodic_month * 0.75
+    }
+    
+    # Find the next phase
+    min_days = synodic_month
+    next_phase_name = None
+
+    for name, age in phase_ages.items():
+        days_until = (age - moon_age + synodic_month) % synodic_month
+        if days_until < min_days:
+            min_days = days_until
+            next_phase_name = name
+
     return {
         'phase': phase,
         'angle': round(angle, 2),
         'emoji': emoji,
         'Dtoday': f' {calendar.month_name[month]} {day}, {year}',
-        'illumination': f'{illumination_percent}%'
+        'illumination': f'{illumination_percent}%',
+        'age': round(moon_age, 2),
+        'next_phase': next_phase_name,
+        'days_until_next': round(min_days, 2),
     }
 
 if __name__ == "__main__":

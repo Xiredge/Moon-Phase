@@ -18,11 +18,9 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" aria-label="Fourth navbar example">
         <div class="container-fluid"> <a class="navbar-brand" href=""><h1 id="webTitle">Moon Phase</h1></a>
             <div class="collapse navbar-collapse" id="navbarsExample04">
-                <!--<ul class="navbar-nav ms-auto pt-0 mb-md-0">
-                    <li class="nav-item m-0"> <a class="nav-link" href="#About"><h4>About</h4></a> </li>
-                    <li class="nav-item m-0"> <a class="nav-link" href="#Projects"><h4>Projects</h4></a> </li>
-                    <li class="nav-item m-0"> <a class="nav-link" href="#Contact"><h4>Contact</h4></a> </li>
-                </ul>-->
+                <ul class="navbar-nav ms-auto pt-0 mb-md-0">
+                    <li class="nav-item m-0"> <a class="nav-link" id="aboutBtn" href="#About">About</a> </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -36,6 +34,16 @@
           <label>{{ moon.Dtoday }} is a</label>
           <label>{{ moon.phase }}</label> {% endif %}
           <label>{{ displays }}</label>
+          <br>
+          <label>Moon Illumination: {{ moon.illumination }}</label>
+          <br>
+          <label>Moon Elongation: {{ moon.angle }}°</label>
+          <br>
+          <label>Moon Age: {{ moon.age }} days</label>
+          <br>
+          <label>Next Phase: {{ moon.next_phase }}</label>
+          <br>
+          <label>Days Until Next Phase: {{ moon.days_until_next }}</label>
         </div>
       </div>
       <div class="right">
@@ -50,6 +58,57 @@
       </div>
     </div>
 
+
+    <!-- The Modal -->
+    <div id="myModal" class="custom-modal">
+      <div class="custom-modal-content" id="content">
+        <span class="close">&times;</span>
+        <h2>About this website</h2>
+        <p>
+          This website calculates the moon phase for any given date using astronomical algorithms 
+          based on precise lunar position data. This application utilizes the DE421 
+          planetary ephemeris file provided by NASA's Jet Propulsion Laboratory (JPL). 
+          The DE421 dataset contains high-precision positional data for the Moon, Earth, 
+          and other celestial bodies, allowing accurate computation of lunar phases, 
+          illumination percentage, elongation angle, and phase transitions.
+        </p>
+
+        <p>
+          By calculating the relative positions of the Sun, Earth, and Moon, the system 
+          determines the Moon’s age, current phase (e.g., New Moon, First Quarter, Full Moon), 
+          and upcoming phase changes. These calculations are based on real astronomical 
+          models rather than simple approximations, ensuring reliable and scientifically 
+          grounded results.
+        </p>
+
+        <p>This website uses the <a href="https://ascl.net/1907.024">Skyfield library</a>.</p>
+        <p>&copy;2026 Jerick Gamba. All rights reserved.</p>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("myModal");
+      const openBtn = document.getElementById("aboutBtn");
+      const closeBtn = document.querySelector(".close");
+
+      // Open modal
+      openBtn.onclick = () => {
+        modal.style.display = "flex";
+      }
+
+      // Close modal
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      }
+
+      // Close when clicking outside the modal content
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
   </body>
 </html>
