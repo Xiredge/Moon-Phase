@@ -42,11 +42,11 @@ def get_moon_phase(year, month, day):
     else:
         phase = 'Full Moon'
         emoji = 'images/full_moon.png'
-    
+
     #Calculate moon illumination percentage
     illumination = (1 - math.cos(math.radians(angle))) / 2
     illumination_percent = round(illumination * 100, 1)
-    
+
     return {
         'phase': phase,
         'angle': round(angle, 2),
