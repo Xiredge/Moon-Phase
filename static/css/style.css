@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* overflow: hidden;
+    height: 100%; */
+    margin: 0;
+    min-height: 100vh;
+    background: url("../images/space.png") no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: #F8EDFF;
+    font-size: 2rem;
+    font-family: "Roboto", sans-serif;
+}
+
+
+
+
+
+/* ===========================
+          Navigation Bar
+   =========================== */
+.navbar {
+  position: static;
+  width: 100%;
+  background: transparent;
+}
+
+#webTitle {
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+
+
+/* ===========================
+              Body
+   =========================== */
+
+/* Moon Image Style*/
+img {
+  min-height: 200px;
+  padding: 25px;
+}
+
+/* Text Label Style */
+label {
+  font-family: "Roboto", sans-serif;
+  color: #F8EDFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+}
+
+/* Button Style */
+/* Start */
+#checkBtn {
+  margin-top: .5rem;
+  background: transparent;
+  border: 2px solid #F8EDFF;
+  color: #F8EDFF;
+  padding: 6px 12px;  /* narrower side padding */
+  font-size: 0.9rem;
+  font-family: monospace;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center; /* center text */
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
+  letter-spacing: 1px;
+}
+
+#checkBtn:hover {
+  background: #F8EDFF;
+  color: #3D3B40;
+  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
+}/* End */
+
+/* Date Form Style */
+/* Start */
+#date {
+  margin-top: 20px;
+  color: #F8EDFF;
+  background-color: transparent;
+  border: 2px solid #F8EDFF;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  font-family: monospace;
+  box-shadow: 0 0 6px #F8EDFF, 0 0 12px #F8EDFF inset;
+  outline: none;
+  transition: 0.3s ease;
+  width: 180px;
+}
+
+#date::placeholder {
+  color: #F8EDFF;
+  opacity: 0.6;
+}
+
+#date:focus {
+  box-shadow: 0 0 15px #F8EDFF;
+}
+
+#date:hover {
+  background: #F8EDFF;
+  color: black;
+  box-shadow: 0 0 12px #F8EDFF, 0 0 24px #F8EDFF inset;
+}/* End */
+
+/* Main Content Style */
+/* Start */
+.rounded-box {
+  min-width: 300px;
+  min-height: 300px;
+  padding: 0;             
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;              
+  align-items: center;
+}
+
+.rounded-box-display{
+  min-width: 200px;              
+  min-height: 200px;        
+  padding: 0;             
+  font-family: 'Roboto', sans-serif;
+  color: #F8EDFF;               
+  align-items: center;
+}/* End */
+
+#homebutton, 
+#aboutbutton, 
+#contactbutton{
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #mainDiv{
+    justify-content: center;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .rounded-box {
+  min-width: 50px;
+  min-height: 50px;
+  padding: 0;             
+  align-items: center;
+  }
+
+  .rounded-box-display{
+    min-width: 150px;
+    min-height: 150px;           
+    align-items: center;
+  }
+
+  img {
+    min-height: 150px;
+    padding: 25px;
+  }
+}

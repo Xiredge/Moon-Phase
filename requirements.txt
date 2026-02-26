@@ -1,0 +1,14 @@
+asgiref==3.8.1
+certifi==2025.7.14
+Django==5.2.3
+gunicorn==23.0.0
+jplephem==2.23
+numpy==2.3.2
+packaging==25.0
+pystache==0.6.8
+sgp4==2.24
+skyfield==1.53
+sqlparse==0.5.3
+static==1.1.1
+tzdata==2025.2
+whitenoise==6.10.0
