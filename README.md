@@ -1,2 +1,2 @@
 # Moon-Phase
-Tells the moon phase based on the date input.
+This website calculates the Moon’s phase for any given date using precise astronomical algorithms. It relies on NASA JPL’s DE421 planetary ephemeris, which provides high-precision positions for the Moon, Earth, and other celestial bodies. Using these data, the application determines the Moon’s current phase, illumination, age, elongation, and upcoming phase transitions based on real astronomical models, not approximations. Calculations are performed with the Skyfield library.If you want to read and learn more about skyfield, you can check out their website.
