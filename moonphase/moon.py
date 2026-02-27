@@ -26,7 +26,7 @@ def get_moon_phase(year, month, day):
     dot = sum(m * s for m, s in zip(r_moon, r_sun))
     waxing = dot < 0  # Negative dot = waxing, Positive = waning
 
-    # Determine moon phase
+    # Determine moon phase based on angle
     if angle < 22.5:
         phase = 'New Moon'
         emoji = 'images/new_moon.png'
@@ -58,26 +58,13 @@ def get_moon_phase(year, month, day):
         "Full Moon": synodic_month * 0.5,
         "Last Quarter": synodic_month * 0.75
     }
-    
-    # Find the next phase
-    min_days = synodic_month
-    next_phase_name = None
-
-    for name, age in phase_ages.items():
-        days_until = (age - moon_age + synodic_month) % synodic_month
-        if days_until < min_days:
-            min_days = days_until
-            next_phase_name = name
 
     return {
         'phase': phase,
-        'angle': round(angle, 2),
+        'angle': f'Moon Elongation: {round(angle, 2)}°',
         'emoji': emoji,
         'Dtoday': f' {calendar.month_name[month]} {day}, {year}',
-        'illumination': f'{illumination_percent}%',
-        'age': round(moon_age, 2),
-        'next_phase': next_phase_name,
-        'days_until_next': round(min_days, 2),
+        'illumination': f'Moon Illumination: {illumination_percent}%',
     }
 
 if __name__ == "__main__":

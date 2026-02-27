@@ -17,41 +17,49 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" aria-label="Fourth navbar example">
         <div class="container-fluid"> <a class="navbar-brand" href=""><h1 id="webTitle">Moon Phase</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav ms-auto pt-0 mb-md-0">
-                    <li class="nav-item m-0"> <a class="nav-link" id="aboutBtn" href="#About">About</a> </li>
+                  <li class="nav-item m-0">
+                    <a class="nav-link" id="funBtn" href="#" data-bs-toggle="modal" data-bs-target="#funModal" style="font-family: monospace;">
+                      Fun Facts
+                    </a>
+                  </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    
     <div id="mainDiv"
       class="container text-center py-5 min-vh-100 d-flex justify-content-between align-items-center flex-wrap"
     >
       <div class="left">
         <div class="rounded-box">
-          {% if moon %}
+          {% if moon %} 
           <label>{{ moon.Dtoday }} is a</label>
           <label>{{ moon.phase }}</label> {% endif %}
           <label>{{ displays }}</label>
           <br>
-          <label>Moon Illumination: {{ moon.illumination }}</label>
+          <label>{{ moon.illumination }}</label>
           <br>
-          <label>Moon Elongation: {{ moon.angle }}°</label>
-          <br>
-          <label>Moon Age: {{ moon.age }} days</label>
-          <br>
-          <label>Next Phase: {{ moon.next_phase }}</label>
-          <br>
-          <label>Days Until Next Phase: {{ moon.days_until_next }}</label>
+          <label>{{ moon.angle }}</label>
         </div>
       </div>
       <div class="right">
+        {% if moon.emoji %}
         <div class="rounded-box-display">
           <img src="{% static moon.emoji %}" alt="Moon">
         </div>
+        {% endif %}
         <form method="GET" action="{% url 'home' %}">
-          <label id="datelabel">Select Date</label> <br />
+          <label id="datelabel">Select Date</label>
+          <label> 
+            <button id="infoBtn" type="button" class="btn btn-info rounded-circle p-0 d-flex align-items-center justify-content-center"
+              style="width:20px; height:20px;">
+              <i class="bi bi-info-lg" style="font-size: 0.8rem; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">i</i>
+            </button>
+          </label>
+          <br />
           <input type="date" name="date" id="date" required /> <br />
           <button type="submit" id="checkBtn">Get Moon Phase</button>
         </form>
@@ -63,50 +71,184 @@
     <div id="myModal" class="custom-modal">
       <div class="custom-modal-content" id="content">
         <span class="close">&times;</span>
-        <h2>About this website</h2>
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="exampleModalLabel">About this website</h2>
+        </div>
         <p>
-          This website calculates the moon phase for any given date using astronomical algorithms 
-          based on precise lunar position data. This application utilizes the DE421 
-          planetary ephemeris file provided by NASA's Jet Propulsion Laboratory (JPL). 
-          The DE421 dataset contains high-precision positional data for the Moon, Earth, 
-          and other celestial bodies, allowing accurate computation of lunar phases, 
-          illumination percentage, elongation angle, and phase transitions.
+          This website calculates the Moon’s phase for any given date using precise 
+          astronomical algorithms. It relies on NASA JPL’s DE421 planetary ephemeris, 
+          which provides high-precision positions for the Moon, Earth, and other celestial 
+          bodies. Using these data, the application determines the Moon’s current phase, 
+          illumination, and elongation based on real astronomical models, not approximations. 
+          Calculations are performed with the 
+          <a href="https://ascl.net/1907.024">Skyfield library</a>. If you want to read and
+          learn more about skyfield, you can check out their 
+          <a href="https://rhodesmill.org/skyfield/">website</a>.
+          Github source code for this project is available
+          <a href="https://github.com/Xiredge/Moon-Phase">here</a>.
         </p>
-
-        <p>
-          By calculating the relative positions of the Sun, Earth, and Moon, the system 
-          determines the Moon’s age, current phase (e.g., New Moon, First Quarter, Full Moon), 
-          and upcoming phase changes. These calculations are based on real astronomical 
-          models rather than simple approximations, ensuring reliable and scientifically 
-          grounded results.
-        </p>
-
-        <p>This website uses the <a href="https://ascl.net/1907.024">Skyfield library</a>.</p>
-        <p>&copy;2026 Jerick Gamba. All rights reserved.</p>
+        <div class="modal-footer">
+          <p>&copy;2026 Jerick Gamba</p>
+        </div>
       </div>
     </div>
 
+    {% comment %} <div id="funModal" class="fun-modal">
+      <div class="fun-modal-content" id="funContent">
+        <span class="funclose">&times;</span>
+        <h2>FUN!</h2>
+        <p>
+          This is the fun modal
+        </p>
+        <p>&copy;2 FUNNN</p>
+      </div>
+    </div> {% endcomment %}
+
+    <!-- Modal -->
+    <div id="funModal" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div id="funModal-content"  class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">All Moon Phases</h1>
+            <button id="funclose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="container d-flex justify-content-between align-items-center flex-wrap">
+                  <h6 class="facts"><b>New Moon</b></h6>
+                  <br />
+                  <img src="{% static 'images/new_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    This is the invisible phase of the Moon, with the illuminated side of the Moon facing the Sun 
+                    and the night side facing Earth. In this phase, the Moon is in the same part of the sky as the 
+                    Sun and rises and sets with the Sun. Not only is the illuminated side facing away from the Earth, 
+                    it’s also up during the day! Remember, in this phase, the Moon doesn’t usually pass directly 
+                    between Earth and the Sun, due to the inclination of the Moon’s orbit. It only passes near the 
+                    Sun from our perspective on Earth.
+                  </p>
+                  <h6 class="facts"><b>Waxing Crescent</b></h6>
+                  <br />
+                  <img src="{% static 'images/waxing_crescent_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    This silver sliver of a Moon occurs when the illuminated half of the Moon faces mostly away 
+                    from Earth, with only a tiny portion visible to us from our planet. It grows daily as the 
+                    Moon’s orbit carries the Moon’s dayside farther into view. Every day, the Moon rises a 
+                    little bit later.
+                  </p>
+                  <h6 class="facts"><b>First Quarter</b></h6>
+                  <br />
+                  <img src="{% static 'images/first_quarter_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    This is the half-moon phase, where the right half of the Moon is illuminated and visible from 
+                    Earth. It occurs when the Moon has completed about a quarter of its orbit around Earth. The 
+                    Moon rises around noon and sets around midnight during this phase.
+                  </p>
+                  <h6 class="facts"><b>Waxing Gibbous</b></h6>
+                  <br />
+                  <img src="{% static 'images/waxing_gibbous_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    Now most of the Moon’s dayside has come into view, and the Moon appears brighter in the sky. 
+                  </p>
+                  <h6 class="facts"><b>Full Moon</b></h6>
+                  <br />
+                  <img src="{% static 'images/full_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    This is as close as we come to seeing the Sun’s illumination of the entire day side of the 
+                    Moon (so, technically, this would be the real half moon). The Moon is opposite the Sun, 
+                    as viewed from Earth, revealing the Moon’s dayside. A full Moon rises around sunset and 
+                    sets around sunrise. The Moon will appear full for a couple of days before it moves into…
+                  </p>
+                  <h6 class="facts"><b>Waning Gibbous</b></h6>
+                  <br />
+                  <img src="{% static 'images/waning_gibbous_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    As the Moon begins its journey back toward the Sun, the opposite side of the Moon now 
+                    reflects the Moon’s light. The lighted side appears to shrink, but the Moon’s orbit is 
+                    simply carrying it out of view from our perspective. The Moon rises later and later 
+                    each night.
+                  </p>
+                  <h6 class="facts"><b>Last Quarter</b></h6>
+                  <br />
+                  <img src="{% static 'images/last_quarter_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    The Moon looks like it’s half illuminated from the perspective of Earth, but really 
+                    you’re seeing half of the half of the Moon that’s illuminated by the Sun ― or a quarter. 
+                    A last quarter Moon, also known as a third quarter Moon, rises around midnight and sets 
+                    around noon.
+                  </p>
+                  <h6 class="facts"><b>Waning Crescent</b></h6>
+                  <br />
+                  <img src="{% static 'images/waning_crescent_moon.png' %}" class="facts" alt="Moon">
+                  <p>
+                    The Moon is nearly back to the point in its orbit where its dayside directly faces the 
+                    Sun, and all that we see from our perspective is a thin curve. 
+                  </p>
+              </div>
+          </div>
+          </div>
+          {% comment %} <div class="modal-footer"></div> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <div class="shooting-star"></div>
     <script>
-      const modal = document.getElementById("myModal");
-      const openBtn = document.getElementById("aboutBtn");
+      const funModal = document.getElementById("funModal");
+      const infoModal = document.getElementById("myModal");
+      const infoBtn = document.getElementById("infoBtn");
       const closeBtn = document.querySelector(".close");
 
       // Open modal
-      openBtn.onclick = () => {
-        modal.style.display = "flex";
+      infoBtn.onclick = () => {
+        infoModal.style.display = "flex";
       }
 
       // Close modal
       closeBtn.onclick = () => {
-        modal.style.display = "none";
+        infoModal.style.display = "none";
+        funModal.style.display = "none";
       }
 
       // Close when clicking outside the modal content
       window.onclick = (event) => {
-        if (event.target === modal) {
-          modal.style.display = "none";
+        if (event.target === infoModal) {
+          infoModal.style.display = "none";
         }
       }
+
+
+      const star = document.querySelector('.shooting-star');
+
+      function triggerShootingStar() {
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * (window.innerHeight / 2);
+
+        star.style.left = startX + 'px';
+        star.style.top = startY + 'px';
+        star.style.opacity = 1;
+
+        star.animate([
+          { transform: 'translate(0, 0)', opacity: 1 },
+          { transform: 'translate(300px, 300px)', opacity: 0 }
+        ], {
+          duration: 3000,
+          easing: 'ease-out'
+        });
+
+        setTimeout(() => {
+          star.style.opacity = 0;
+        }, 1000);
+      }
+
+      function randomInterval() {
+        const delay = Math.random() * 10000 + 5000; // 5–15 seconds
+        setTimeout(() => {
+          triggerShootingStar();
+          randomInterval();
+        }, delay);
+      }
+
+      randomInterval();
+
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 

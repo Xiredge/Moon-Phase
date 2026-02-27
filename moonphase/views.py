@@ -17,7 +17,7 @@ def home(request):
         year, month, day = map(int, selected_date.split('-'))
         
         if year <= 1899 or year >= 2052:
-            displays = "This webpage can only calculate the moon phases between January 1, 1900 and December 31, 2052"
+            displays = "This webpage can only calculate the moon phases between January 1, 1900 and December 31, 2051"
         else:
             moon = get_moon_phase(year, month, day)
     else:
