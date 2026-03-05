@@ -43,11 +43,11 @@ def get_moon_phase(year, month, day):
         phase = 'Full Moon'
         emoji = 'images/full_moon.png'
 
-    #Calculate moon illumination percentage
+    # Calculate moon illumination percentage
     illumination = (1 - math.cos(math.radians(angle))) / 2
     illumination_percent = round(illumination * 100, 1)
 
-    #Average moon age is 29.53 days, so we can calculate the age of the moon in days
+    # Average moon age is 29.53 days, so we can calculate the age of the moon in days
     synodic_month = 29.53058867 
     moon_age = (synodic_month * angle / 360) % synodic_month
 
